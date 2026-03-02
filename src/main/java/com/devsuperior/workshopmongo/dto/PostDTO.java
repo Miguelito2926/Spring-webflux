@@ -20,8 +20,7 @@ public class PostDTO {
 	public PostDTO() {
 	}
 
-	public PostDTO(String id, Instant date, String title, String body, String authorId, String authorName,
-			AuthorDTO author) {
+	public PostDTO(String id, Instant date, String title, String body, String authorId, String authorName, AuthorDTO author) {
 		this.id = id;
 		this.date = date;
 		this.title = title;
