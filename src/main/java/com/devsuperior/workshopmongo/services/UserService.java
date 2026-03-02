@@ -24,12 +24,6 @@ public class UserService {
                 .switchIfEmpty(Mono.error(new ResourceNotFoundException("Recurso não encontrado")));
 	}
 
-//	public Mono<PostDTO> findPosts(String id) {
-//		return repository.findById(id).map(PostDTO::new)
-//                .switchIfEmpty(Mono.error(new ResourceNotFoundException("Recurso não encontrado")));
-//	}
-
-
 	public Mono<UserDTO> insert(UserDTO dto) {
 		User entity = new User();
 		copyDtoToEntity(dto, entity);

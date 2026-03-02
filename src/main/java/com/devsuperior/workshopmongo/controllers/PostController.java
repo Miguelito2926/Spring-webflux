@@ -3,6 +3,7 @@ package com.devsuperior.workshopmongo.controllers;
 import com.devsuperior.workshopmongo.controllers.util.URL;
 import com.devsuperior.workshopmongo.dto.PostDTO;
 import com.devsuperior.workshopmongo.services.PostService;
+import com.devsuperior.workshopmongo.services.exceptioons.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -43,5 +44,10 @@ public class PostController {
 		Instant max = URL.convertDate(maxDate, Instant.now());
 
 		return service.fullSearch(text, min, max);
+	}
+
+	@GetMapping(value = "/user/{id}")
+	public Flux<PostDTO> findByUser(@PathVariable String id) {
+		return service.findByUser(id);
 	}
 }
